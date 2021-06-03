@@ -45,6 +45,20 @@ class LaserTracker(object):
         self.trail = numpy.zeros((self.cam_height, self.cam_width, 3),
                                  numpy.uint8)
 
+    def set_window(self,window_width,window_height):
+         self.cam_width = cam_width
+         self.cam_height = cam_height
+
+
+    def set_hue(self,hue_min,hue_max):
+         self.hue_min = hue_min
+         self.hue_max = hue_max
+
+
+    def set_saturation(self,sat_min,sat_max):
+         self.sat_min = sat_min
+         self.sat_max = sat_max
+
     def create_and_position_window(self, name, xpos, ypos):
         """Creates a named widow placing it on the screen at (xpos, ypos)."""
         # Create a window

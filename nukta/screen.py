@@ -4,7 +4,7 @@ import cv2
 import numpy
 
 class LaserTracker(object):
-    
+
 
     def __init__(self, cam_width=100, cam_height=200, hue_min=20, hue_max=160,
                 sat_min=100, sat_max=255, val_min=200, val_max=256,
@@ -44,6 +44,23 @@ class LaserTracker(object):
         self.previous_position = None
         self.trail = numpy.zeros((self.cam_height, self.cam_width, 3),
                                     numpy.uint8)
+
+
+    def set_window(self,window_width,window_height):
+         self.window_height = window_height
+         self.window_width = window_width
+
+
+    def set_hue(self,hue_min,hue_max):
+         self.hue_min = hue_min
+         self.hue_max = hue_max
+
+
+    def set_saturation(self,sat_min,sat_max):
+         self.sat_min = sat_min
+         self.sat_max = sat_max
+
+
 
     def create_and_position_window(self, name, xpos, ypos):
         """Creates a named widow placing it on the screen at (xpos, ypos)."""
