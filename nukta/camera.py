@@ -59,6 +59,10 @@ class LaserTracker(object):
          self.sat_min = sat_min
          self.sat_max = sat_max
 
+
+    def set_display_threshold(self,threshold):
+         self.display_thresholds = display_thresholds
+
     def create_and_position_window(self, name, xpos, ypos):
         """Creates a named widow placing it on the screen at (xpos, ypos)."""
         # Create a window
