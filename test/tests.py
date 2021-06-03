@@ -1,4 +1,4 @@
-import  camera as cr
+import  nukta.camera as cr
 
 
 laser=cr.LaserTracker()
