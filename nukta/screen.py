@@ -4,6 +4,7 @@ import cv2
 import numpy
 
 class LaserTracker(object):
+    
 
     def __init__(self, cam_width=100, cam_height=200, hue_min=20, hue_max=160,
                 sat_min=100, sat_max=255, val_min=200, val_max=256,
