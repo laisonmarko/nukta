@@ -41,6 +41,8 @@ class ColorTracker(object):
             'color': None,
         }
 
+        
+
         self.previous_position = None
         self.trail = numpy.zeros((self.cam_height, self.cam_width, 3),
                                     numpy.uint8)

@@ -46,8 +46,8 @@ class ColorTracker(object):
                                  numpy.uint8)
 
     def set_window(self,window_width,window_height):
-         self.cam_width = cam_width
-         self.cam_height = cam_height
+         self.window_width = window_width
+         self.window_height = window_height
 
 
     def set_hue(self,hue_min,hue_max):
@@ -59,8 +59,12 @@ class ColorTracker(object):
          self.sat_min = sat_min
          self.sat_max = sat_max
 
+    def set_value(self,val_min,val_max):
+         self.val_min = val_min
+         self.val_max = val_max
 
-    def set_display_threshold(self,threshold):
+
+    def set_display_threshold(self,display_thresholds):
          self.display_thresholds = display_thresholds
 
     def create_and_position_window(self, name, xpos, ypos):
