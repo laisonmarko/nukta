@@ -1,7 +1,7 @@
-import camera as cr
+import screen as cr
 
 
-laser=cr.LaserTracker()
+laser=cr.ColorTracker()
 
 laser.run()
 

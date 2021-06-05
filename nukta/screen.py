@@ -3,21 +3,21 @@ import argparse
 import cv2
 import numpy
 
-class LaserTracker(object):
+class ColorTracker(object):
 
 
-    def __init__(self, cam_width=100, cam_height=200, hue_min=20, hue_max=160,
+    def __init__(self, cam_width=640, cam_height=480, hue_min=20, hue_max=160,
                 sat_min=100, sat_max=255, val_min=200, val_max=256,
                 display_thresholds=False):
         """
         * ``cam_width`` x ``cam_height`` -- This should be the size of the
         image coming from the camera. Default is 640x480.
-        HSV color space Threshold values for a RED laser pointer are determined
+        HSV color space Threshold values for a RED color pointer are determined
         by:
         * ``hue_min``, ``hue_max`` -- Min/Max allowed Hue values
         * ``sat_min``, ``sat_max`` -- Min/Max allowed Saturation values
         * ``val_min``, ``val_max`` -- Min/Max allowed pixel values
-        If the dot from the laser pointer doesn't fall within these values, it
+        If the dot from the color pointer doesn't fall within these values, it
         will be ignored.
         * ``display_thresholds`` -- if True, additional windows will display
             values for threshold image channels.
@@ -38,7 +38,7 @@ class LaserTracker(object):
             'hue': None,
             'saturation': None,
             'value': None,
-            'laser': None,
+            'color': None,
         }
 
         self.previous_position = None
@@ -146,7 +146,7 @@ class LaserTracker(object):
 
     def track(self, frame, mask):
         """
-        Track the position of the laser pointer.
+        Track the position of the color pointer.
         Code taken from
         http://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/
         """
@@ -198,14 +198,14 @@ class LaserTracker(object):
         self.threshold_image("saturation")
         self.threshold_image("value")
 
-        # Perform an AND on HSV components to identify the laser!
-        self.channels['laser'] = cv2.bitwise_and(
+        # Perform an AND on HSV components to identify the color!
+        self.channels['color'] = cv2.bitwise_and(
             self.channels['hue'],
             self.channels['value']
         )
-        self.channels['laser'] = cv2.bitwise_and(
+        self.channels['color'] = cv2.bitwise_and(
             self.channels['saturation'],
-            self.channels['laser']
+            self.channels['color']
         )
 
         # Merge the HSV components back together.
@@ -215,7 +215,7 @@ class LaserTracker(object):
             self.channels['value'],
         ])
 
-        self.track(frame, self.channels['laser'])
+        self.track(frame, self.channels['color'])
 
         return hsv_image
 
@@ -224,7 +224,7 @@ class LaserTracker(object):
         NOTE: default color space in OpenCV is BGR.
         """
         cv2.imshow('RGB_VideoFrame', frame)
-        cv2.imshow('LaserPointer', self.channels['laser'])
+        cv2.imshow('ColorPointer', self.channels['color'])
         if self.display_thresholds:
             cv2.imshow('Thresholded_HSV_Image', img)
             cv2.imshow('Hue', self.channels['hue'])
@@ -235,7 +235,7 @@ class LaserTracker(object):
         sys.stdout.write("Using OpenCV version: {0}\n".format(cv2.__version__))
 
         # create output windows
-        self.create_and_position_window('LaserPointer', 0, 0)
+        self.create_and_position_window('ColorPointer', 0, 0)
         self.create_and_position_window('RGB_VideoFrame',
                                         10 + self.cam_width, 0)
         if self.display_thresholds:
@@ -272,7 +272,7 @@ class LaserTracker(object):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Run the Laser Tracker')
+    parser = argparse.ArgumentParser(description='Run the Color Tracker')
     parser.add_argument('-W', '--width',
                         default=640,
                         type=int,
@@ -310,7 +310,7 @@ if __name__ == '__main__':
                         help='Display Threshold Windows')
     params = parser.parse_args()
 
-    tracker = LaserTracker(
+    tracker = ColorTracker(
         cam_width=params.width,
         cam_height=params.height,
         hue_min=params.huemin,
