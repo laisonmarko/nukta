@@ -31,8 +31,11 @@ This is an example of how to list things you need to use the software and how to
   pip install numpy
   ```
  * Open CV
+
+
     ```sh
   pip install cv2
+  
   ```
 
 
