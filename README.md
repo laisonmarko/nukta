@@ -1,7 +1,5 @@
 
 
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 
 This is a simple library for tracking objects of various sizes base on their colour
@@ -20,8 +18,6 @@ This library is bult using python
 
 
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
@@ -39,21 +35,7 @@ This is an example of how to list things you need to use the software and how to
   pip install cv2
   ```
 
-<!-- ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-py setup.py   ```
--->
-
-
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 If the video source is Camera 
@@ -96,14 +78,12 @@ pointer.set_value(200,256)
 
 
 
-<!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/laisonmarko/nukta/issues) for a list of proposed features (and known issues).
 
 
 
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Your contribution is  **greatly appreciated**.
@@ -114,16 +94,12 @@ Your contribution is  **greatly appreciated**.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-<!-- CONTACT -->
 ## Contact
 
 
