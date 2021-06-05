@@ -181,6 +181,8 @@ class ColorTracker(object):
                     cv2.line(self.trail, self.previous_position, center,
                              (255, 255, 255), 2)
 
+                print("Y : "+ str(y) + "  X : "+str(x),end='\r')
+
         cv2.add(self.trail, frame, frame)
         self.previous_position = center
 
