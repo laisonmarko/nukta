@@ -30,7 +30,7 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   pip install numpy
   ```
- * Open CV
+  * Open CV
    ```sh
   pip install cv2
   ```
@@ -55,7 +55,7 @@ pointer.set_value(200,256)				  # Set minimum  and Naximun  saturation values va
 
 pointer.run()
 print("hello")
- ```
+```
 
 
 
